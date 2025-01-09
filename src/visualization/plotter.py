@@ -14,15 +14,15 @@ def plot_predictions(df, future_predictions):
         future_prices.append(next_price)
     future_prices = future_prices[1:]
     
-    # Get last 6 months of data
-    days_6m = 180  # Approximately 6 months of trading days
-    last_6m = df.iloc[-days_6m:] if len(df) > days_6m else df
+    # Get last 2 years of data (approximately 504 trading days)
+    days_2y = 504  # Approximately 2 years of trading days
+    last_2y = df.iloc[-days_2y:] if len(df) > days_2y else df
     
     # Create figure and axes
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 8), height_ratios=[3, 1], gridspec_kw={'hspace': 0.3})
     
     # Plot historical prices
-    historical_line = ax1.plot(last_6m.index, last_6m['Close'], 
+    historical_line = ax1.plot(last_2y.index, last_2y['Close'], 
                              label='Historical', color='blue', linewidth=1.5)
     
     # Plot predictions
@@ -30,7 +30,7 @@ def plot_predictions(df, future_predictions):
                              label='Predicted', color='red', linestyle='--', linewidth=1.5)
     
     # Plot volume
-    ax2.bar(last_6m.index, last_6m['Volume'], color='gray', alpha=0.5)
+    ax2.bar(last_2y.index, last_2y['Volume'], color='gray', alpha=0.5)
     
     # Format dates
     date_formatter = DateFormatter('%Y-%m-%d')
@@ -49,7 +49,7 @@ def plot_predictions(df, future_predictions):
     add_hover_annotations([*historical_line, *prediction_line])
     
     # Set titles and labels
-    ax1.set_title('Stock Price Prediction', fontsize=14, pad=20)
+    ax1.set_title('Stock Price Prediction (2 Year Historical Data)', fontsize=14, pad=20)
     ax1.set_ylabel('Price ($)', fontsize=12)
     ax2.set_ylabel('Volume', fontsize=12)
     ax1.legend(loc='upper left')
