@@ -1,6 +1,3 @@
-### **README.md**
-
-```markdown
 # Stock Price Prediction
 
 This repository contains a comprehensive project for predicting stock prices using historical data and machine learning techniques. The project includes data fetching, feature engineering, model training, evaluation, and visualization of predictions.
