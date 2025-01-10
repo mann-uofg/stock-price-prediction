@@ -76,7 +76,7 @@ src/
 └── main.py                     # Entry point for the project
 ```
 
-## Usage
+## Usage (Step 1 & 2 are automatic, don't need to run)
 
 1. Fetch stock data:
    ```bash
@@ -90,7 +90,7 @@ src/
 
 3. Visualize predictions:
    ```bash
-   python main.py
+   python3 predict.py
    ```
 
 ## Logic and Implementation
