@@ -54,6 +54,11 @@ def plot_predictions(df, future_predictions):
     ax2.set_ylabel('Volume', fontsize=12)
     ax1.legend(loc='upper left')
     
-    # Adjust layout and display
+    # Adjust layout
     plt.tight_layout()
+    
+    # Show the plot and keep the window open
     plt.show()
+    
+    # Add this line to keep both plots visible until user closes them
+    plt.pause(0.001)  # Add a small pause to allow both windows to be interactive
